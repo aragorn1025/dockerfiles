@@ -17,9 +17,9 @@ RUN apt-get install -y openssh-server
 ARG ANACONDA_VERSION_CODE="2020.07"
 RUN apt-get install -y wget \
  && wget https://repo.anaconda.com/archive/Anaconda3-${ANACONDA_VERSION_CODE}-Linux-x86_64.sh -O anaconda3.sh \
- && bash anaconda3.sh -b \
+ && bash anaconda3.sh -b -p /opt/anaconda3/ \
  && rm anaconda3.sh \
- && /root/anaconda3/bin/conda init \
+ && /opt/anaconda3/bin/conda init \
  && echo "conda deactivate" >> ~/.bashrc \
  && echo "" >> ~/.bashrc
 
